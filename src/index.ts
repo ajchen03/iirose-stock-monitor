@@ -128,19 +128,19 @@ export function apply(ctx: Context) {
         status.up++;
         status.down = 0;
         message[2] = `已连续增加 ${status.up} 次`;
-        message[3] = `本次增加 ${(data.unitPrice - thisBotObj.nowData.unitPrice).toFixed(3)} 钞 | 增幅 +${(((data.unitPrice - thisBotObj.nowData.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
+        message[3] = `本次增加 ${(data.unitPrice - thisBotObj.nowData.unitPrice).toFixed(4)} 钞 | 增幅 +${(((data.unitPrice - thisBotObj.nowData.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
       }
 
       if (data.unitPrice < thisBotObj.nowData.unitPrice) {
         status.up = 0;
         status.down++;
         message[2] = `已连续降低 ${status.down} 次`;
-        message[3] = `本次降低 ${(thisBotObj.nowData.unitPrice - data.unitPrice).toFixed(2)} 钞 | 降幅 -${(((thisBotObj.nowData.unitPrice - data.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
+        message[3] = `本次降低 ${(thisBotObj.nowData.unitPrice - data.unitPrice).toFixed(4)} 钞 | 降幅 -${(((thisBotObj.nowData.unitPrice - data.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
       }
 
-      message[4] = `股价：${data.unitPrice} 钞/股 ${data.unitPrice<=0.1?"!不可购买!":''}`;
-      message[5] = `总股：${data.totalStock} 股`;
-      message[6] = `总金：${data.totalMoney} 钞`;
+      message[4] = `股价：${data.unitPrice.toFixed(4)} 钞/股 ${data.unitPrice<=0.1?"!不可购买!":''}`;
+      message[5] = `总股：${data.totalStock.toFixed(4)} 股`;
+      message[6] = `总金：${data.totalMoney.toFixed(4)} 钞`;
 
       // 新增：建议购买和卖出的逻辑
       if (data.unitPrice > 0.1 && data.unitPrice < 0.2) {
