@@ -127,15 +127,15 @@ export function apply(ctx: Context) {
       if (data.unitPrice > thisBotObj.nowData.unitPrice) {
         status.up++;
         status.down = 0;
-        message[2] = `已增加 ${status.up} 次`;
-        message[3] = `已增加 ${(data.unitPrice - thisBotObj.nowData.unitPrice).toFixed(3)} 钞 | 增幅 +${(((data.unitPrice - thisBotObj.nowData.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
+        message[2] = `已连续增加 ${status.up} 次`;
+        message[3] = `本次增加 ${(data.unitPrice - thisBotObj.nowData.unitPrice).toFixed(3)} 钞 | 增幅 +${(((data.unitPrice - thisBotObj.nowData.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
       }
 
       if (data.unitPrice < thisBotObj.nowData.unitPrice) {
         status.up = 0;
         status.down++;
-        message[2] = `已降低 ${status.down} 次`;
-        message[3] = `已降低 ${(thisBotObj.nowData.unitPrice - data.unitPrice).toFixed(2)} 钞 | 降幅 -${(((thisBotObj.nowData.unitPrice - data.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
+        message[2] = `已连续降低 ${status.down} 次`;
+        message[3] = `本次降低 ${(thisBotObj.nowData.unitPrice - data.unitPrice).toFixed(2)} 钞 | 降幅 -${(((thisBotObj.nowData.unitPrice - data.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
       }
 
       message[4] = `股价：${data.unitPrice} 钞/股 ${data.unitPrice<=0.1?"!不可购买!":''}`;
