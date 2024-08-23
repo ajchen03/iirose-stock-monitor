@@ -1,5 +1,5 @@
 {
-  "name": "koishi-plugin-iirose-stock-monitor",
+  "name": "@ajchen03/koishi-plugin-iirose-stock-monitor",
   "description": "适用于的[IIROSE蔷薇花园](https://iirose.com/)的股价监控",
   "version": "0.0.6",
   "main": "lib/index.js",
