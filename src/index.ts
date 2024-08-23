@@ -101,7 +101,7 @@ export function apply(ctx: Context) {
 
       const message = [
         '\\\\\\*',
-        '# 股价提醒'
+        '股价提醒'
       ];
 
       if (data.unitPrice == 1 && data.totalStock == 1000) {
@@ -112,7 +112,7 @@ export function apply(ctx: Context) {
         status.has = 0;
         status.new = 1;
 
-        message[2] = `股市崩盘！`;
+        message[2] = `股市崩盘了——（绝望`;
         message[3] = `股价：${data.unitPrice}`;
         message[4] = `总股：${data.totalStock}`;
         message[5] = `总金：${data.totalMoney}`;
@@ -127,20 +127,20 @@ export function apply(ctx: Context) {
       if (data.unitPrice > thisBotObj.nowData.unitPrice) {
         status.up++;
         status.down = 0;
-        message[2] = `已增加${status.up}次`;
-        message[3] = `已增加${(data.unitPrice - thisBotObj.nowData.unitPrice).toFixed(3)} 增幅${(((data.unitPrice - thisBotObj.nowData.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
+        message[2] = `已增加 ${status.up} 次`;
+        message[3] = `已增加 ${(data.unitPrice - thisBotObj.nowData.unitPrice).toFixed(3)} | 增幅 +${(((data.unitPrice - thisBotObj.nowData.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
       }
 
       if (data.unitPrice < thisBotObj.nowData.unitPrice) {
         status.up = 0;
         status.down++;
-        message[2] = `已降低${status.down}次`;
-        message[3] = `已降低${(thisBotObj.nowData.unitPrice - data.unitPrice).toFixed(2)} 降幅${(((thisBotObj.nowData.unitPrice - data.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
+        message[2] = `已降低 ${status.down} 次`;
+        message[3] = `已降低 ${(thisBotObj.nowData.unitPrice - data.unitPrice).toFixed(2)} | 降幅 -${(((thisBotObj.nowData.unitPrice - data.unitPrice) / thisBotObj.nowData.unitPrice) * 100).toFixed(2)}%`;
       }
 
-      message[4] = `股价：${data.unitPrice} ${data.unitPrice<=0.1?"不可购买":''}`;
-      message[5] = `总股：${data.totalStock}`;
-      message[6] = `总金：${data.totalMoney}`;
+      message[4] = `股价：${data.unitPrice} 钞/股 ${data.unitPrice<=0.1?"!不可购买!":''}`;
+      message[5] = `总股：${data.totalStock} 股`;
+      message[6] = `总金：${data.totalMoney} 钞`;
 
       // 新增：建议购买和卖出的逻辑
       if (data.unitPrice > 0.1 && data.unitPrice < 0.2) {
