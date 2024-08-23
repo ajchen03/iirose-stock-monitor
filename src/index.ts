@@ -139,7 +139,7 @@ export function apply(ctx: Context) {
       }
 
       message[4] = `股价：${data.unitPrice.toFixed(4)} 钞/股 ${data.unitPrice<=0.1?"!不可购买!":''}`;
-      message[5] = `总股：${data.totalStock.toFixed(4)} 股`;
+      message[5] = `总股：${data.totalStock} 股`;
       message[6] = `总金：${data.totalMoney.toFixed(4)} 钞`;
 
       // 新增：建议购买和卖出的逻辑
