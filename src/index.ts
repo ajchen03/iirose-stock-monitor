@@ -105,17 +105,16 @@ export function apply(ctx: Context) {
       ];
 
       if (data.unitPrice == 1 && data.totalStock == 1000) {
+
+        message[2] = `股市崩盘了——（绝望`;
+        message[3] = `一共被套牢了 ${thisBotObj.nowData.totalStock} 股`
+
         status.up = 0;
         status.down = 0;
         thisBotObj.nowData = data;
 		    thisBotObj.lastBuyPrice = 0
         status.has = 0;
         status.new = 1;
-
-        message[2] = `股市崩盘了——（绝望`;
-        message[3] = `股价：${data.unitPrice}`;
-        message[4] = `总股：${data.totalStock}`;
-        message[5] = `总金：${data.totalMoney}`;
 
         return data.send({
           public: {
