@@ -108,7 +108,7 @@ export function apply(ctx: Context) {
         status.up = 0;
         status.down = 0;
         thisBotObj.nowData = data;
-		thisBotObj.lastBuyPrice = 0
+		    thisBotObj.lastBuyPrice = 0
         status.has = 0;
         status.new = 1;
 
