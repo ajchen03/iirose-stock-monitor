@@ -1,11 +1,11 @@
 {
   "name": "@ajchen03/koishi-plugin-iirose-stock-monitor",
   "description": "[IIROSE蔷薇花园](https://iirose.com/)股价监控,但是加了一些功能！",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "contributors": [
-  "ajchen03 <zer1273029087@foxmail.com>"
+    "ajchen03 <zer1273029087@foxmail.com>"
   ],
   "repository": {
     "type": "git",
