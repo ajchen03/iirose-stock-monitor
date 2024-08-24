@@ -143,11 +143,11 @@ export function apply(ctx: Context) {
 
       // 新增：建议购买和卖出的逻辑
       if (data.unitPrice > 0.1 && data.unitPrice < 0.2) {
-	  	message[7] = ``;
+	  	  message[7] = ``;
         message[8] = `建议购买！当前股价：${data.unitPrice}`;
         thisBotObj.lastBuyPrice = data.unitPrice; // 记录上次建议购买时的股价
       } else if (data.unitPrice > 0.5) {
-	  	message[7] = ``;
+	  	  message[7] = ``;
         message[8] = `建议卖出！当前股价：${data.unitPrice}`;
         if (thisBotObj.lastBuyPrice && thisBotObj.lastBuyPrice != 0) {
           const profit = (data.unitPrice - thisBotObj.lastBuyPrice) / thisBotObj.lastBuyPrice;
